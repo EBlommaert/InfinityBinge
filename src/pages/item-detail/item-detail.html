@@ -1,0 +1,60 @@
+<!--
+  Generated template for the ItemDetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+
+  </ion-navbar>
+
+</ion-header>
+
+
+
+
+<ion-content>
+  <div class="movieHeader" [style.background]="'url(https://image.tmdb.org/t/p/w500' + backdrop_path + ')'">
+    <ion-card (click)="viewItem(movie)">
+      <img src="https://image.tmdb.org/t/p/w500{{poster_path}}"/>
+    </ion-card>
+  </div>
+
+  <ion-segment text-center>
+    <ion-grid>
+      <ion-row nowrap>
+        <ion-col>
+          <h1>{{original_title}}</h1>
+          <h2>Rating: {{ vote_average }}</h2>
+        </ion-col>
+      </ion-row>
+
+      <ion-row nowrap>
+        <ion-col>
+          <button ion-button color="primary" round outline icon-start>
+            <ion-icon name="checkmark-circle-outline"></ion-icon>
+            Mark as watched
+          </button>
+        </ion-col>
+      </ion-row>
+
+    </ion-grid>
+
+  </ion-segment>
+
+  <ion-segment text-left class="description">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <h3>Synopsis</h3>
+          <p>{{ overview }}</p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-segment>
+
+
+
+</ion-content>

@@ -1,17 +1,48 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>Home</ion-title>
-  </ion-navbar>
-</ion-header>
-
 <ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+
+  <h2>Phase 1</h2>
+  <ion-slides slidesPerView="2">
+    <ion-slide *ngFor="let movie of moviesPhase1">
+      <ion-card (click)="viewItemPhase1(movie)">
+        <img src="https://image.tmdb.org/t/p/w500{{movie.poster_path}}"/>
+        <ion-card-content>
+          <ion-card-title>
+            <span>{{movie.original_title}}</span>
+            </ion-card-title>
+
+        </ion-card-content>
+      </ion-card>
+    </ion-slide>
+    </ion-slides>
+
+    <h2>Phase 2</h2>
+    <ion-slides slidesPerView="2">
+      <ion-slide *ngFor="let movie of moviesPhase2">
+        <ion-card (click)="viewItemPhase2(movie)">
+          <img src="https://image.tmdb.org/t/p/w500{{movie.poster_path}}"/>
+          <ion-card-content>
+            <ion-card-title>
+              <span>{{movie.original_title}}</span>
+            </ion-card-title>
+          </ion-card-content>
+        </ion-card>
+      </ion-slide>
+      </ion-slides>
+
+      <h2>Phase 3</h2>
+      <ion-slides slidesPerView="2">
+        <ion-slide *ngFor="let movie of moviesPhase3">
+          <ion-card (click)="viewItemPhase2(movie)">
+            <img src="https://image.tmdb.org/t/p/w500{{movie.poster_path}}"/>
+            <ion-card-content>
+              <ion-card-title>
+                <span>{{movie.original_title}}</span>
+              </ion-card-title>
+            </ion-card-content>
+          </ion-card>
+        </ion-slide>
+        </ion-slides>
+
+
+
 </ion-content>

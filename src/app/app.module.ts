@@ -2,39 +2,47 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
-
-import { AboutPage } from '../pages/about/about';
-import { ContactPage } from '../pages/contact/contact';
+import { HttpClientModule } from '@angular/common/http';
+import { HTTP } from '@ionic-native/http';
+import { UnwatchedPage } from '../pages/unwatched/unwatched';
+import { AchievementsPage } from '../pages/achievements/achievements';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
+import { ItemDetailPage } from '../pages/item-detail/item-detail';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { MovieServiceProvider } from '../providers/movie-service/movie-service';
 
 @NgModule({
   declarations: [
     MyApp,
-    AboutPage,
-    ContactPage,
+    UnwatchedPage,
+    AchievementsPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    ItemDetailPage,
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    AboutPage,
-    ContactPage,
+    UnwatchedPage,
+    AchievementsPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    ItemDetailPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    HTTP,
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    MovieServiceProvider
   ]
 })
 export class AppModule {}
