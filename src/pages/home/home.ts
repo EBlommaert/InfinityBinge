@@ -19,8 +19,8 @@ export class HomePage {
 
   public moviesPhase1: any;
   public moviesPhase2: any;
-  public moviesPhase3: any;
-
+  public moviesPhase3: any;  
+ 
   constructor(public navCtrl: NavController, public MovieServiceProvider: MovieServiceProvider) {
     this.getMoviesPhase1();
     this.getMoviesPhase2();

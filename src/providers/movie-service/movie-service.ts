@@ -10,6 +10,8 @@ import 'rxjs/add/operator/map';
 */
 @Injectable()
 export class MovieServiceProvider {
+  data: Object = {};
+  items: Array<any>;  
 
   apiUrl = 'https://api.themoviedb.org/3/list'
   apiKey = '?api_key=9e493b8e1d5cda98bb97c77029b786a0'
@@ -17,11 +19,11 @@ export class MovieServiceProvider {
   constructor(private http: HttpClient) {
     console.log('Hello MovieServiceProvider Provider');
   }
-
+  
   getMoviesPhase1() {
     return new Promise(resolve => {
-      this.http.get(this.apiUrl+'/51602?api_key=9e493b8e1d5cda98bb97c77029b786a0&language=en-US&append_to_response=images&include_image_language=en,null')
-        .subscribe(data => {
+      this.http.get<any>(this.apiUrl+'/51602?api_key=9e493b8e1d5cda98bb97c77029b786a0&language=en-US&append_to_response=images&include_image_language=en,null')
+        .subscribe((data:any) => {
           this.data = data.items;
           resolve(this.data);
           console.log(data);
@@ -31,7 +33,7 @@ export class MovieServiceProvider {
 
   getMoviesPhase2() {
     return new Promise(resolve => {
-      this.http.get(this.apiUrl+'/51605?api_key=9e493b8e1d5cda98bb97c77029b786a0&language=en-US&append_to_response=images&include_image_language=en,null')
+      this.http.get<any>(this.apiUrl+'/51605?api_key=9e493b8e1d5cda98bb97c77029b786a0&language=en-US&append_to_response=images&include_image_language=en,null')
         .subscribe(data => {
           this.data = data.items;
           resolve(this.data);
@@ -42,7 +44,7 @@ export class MovieServiceProvider {
 
   getMoviesPhase3() {
     return new Promise(resolve => {
-      this.http.get(this.apiUrl+'/51781?api_key=9e493b8e1d5cda98bb97c77029b786a0&language=en-US&append_to_response=images&include_image_language=en,null')
+      this.http.get<any>(this.apiUrl+'/51781?api_key=9e493b8e1d5cda98bb97c77029b786a0&language=en-US&append_to_response=images&include_image_language=en,null')
         .subscribe(data => {
           this.data = data.items;
           resolve(this.data);
