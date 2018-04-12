@@ -22,7 +22,9 @@ export class ItemDetailPage {
   vote_average;
   id;
   overview;
-  genre_ids
+  genre_ids;
+  release_date;
+  original_language;
   isWatched = false;
 
   constructor(public navParams: NavParams, public navCtrl: NavController, public watchedProvider: WatchedProvider ) {
@@ -35,6 +37,7 @@ export class ItemDetailPage {
   markAsWatched() {
     this.watchedProvider.markAsWatched(this.id).then(() => {
       this.isWatched = true;
+      console.log();
     });
   }
  
@@ -52,6 +55,8 @@ export class ItemDetailPage {
     this.vote_average = this.navParams.get('movie').vote_average;
     this.genre_ids = this.navParams.get('movie').genre_ids;
     this.id = this.navParams.get('movie').id;
+    this.release_date = this.navParams.get('movie').release_date;
+    this.original_language = this.navParams.get('movie').original_language;
     this.overview = this.navParams.get('movie').overview;
   }
 

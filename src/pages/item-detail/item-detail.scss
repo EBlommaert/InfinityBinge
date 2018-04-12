@@ -23,7 +23,7 @@ page-item-detail {
     }
 
     ion-card.card-md {
-      width: 60%;
+      width: 195px;
       margin-top: 80px;
       margin: 0 auto;
     }
@@ -38,6 +38,12 @@ page-item-detail {
 
       h2 {
         color: #fff;
+      }
+
+      .item {
+        background: none;
+        color: #fff;
+        text-align: center;
       }
     }
 

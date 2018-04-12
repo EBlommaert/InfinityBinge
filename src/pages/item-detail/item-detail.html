@@ -17,7 +17,7 @@
 
 <ion-content>
   <div class="movieHeader" [style.background]="'url(https://image.tmdb.org/t/p/w500' + backdrop_path + ')'">
-    <ion-card (click)="viewItem(movie)">
+    <ion-card>
       <img src="https://image.tmdb.org/t/p/w500{{poster_path}}"/>
     </ion-card>
   </div>
@@ -26,10 +26,9 @@
     <ion-grid>
       <ion-row nowrap>
         <ion-col>
-          <h1>{{original_title}}</h1>
-          <h2>Rating: {{ vote_average }}</h2>
+          <h1>{{original_title}}</h1>         
         </ion-col>
-      </ion-row>
+      </ion-row>      
 
       <ion-row nowrap>
         <ion-col>
@@ -42,6 +41,20 @@
             Mark as Watched
           </button>
         </ion-col>
+      </ion-row>
+
+      <ion-row padding>
+        <ion-list>
+          <ion-item>
+            <strong>Rating: </strong> {{vote_average}}
+          </ion-item>
+          <ion-item>
+            <strong>Release Date: </strong> {{release_date }}
+          </ion-item>
+          <ion-item>
+            <strong>Language: </strong> {{original_language}}
+          </ion-item>
+        </ion-list>
       </ion-row>
 
     </ion-grid>
