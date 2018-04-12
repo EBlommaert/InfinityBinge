@@ -33,9 +33,13 @@
 
       <ion-row nowrap>
         <ion-col>
-          <button ion-button color="primary" round outline icon-start>
-            <ion-icon name="checkmark-circle-outline"></ion-icon>
-            Mark as watched
+          <button ion-button color="primary" (click)="markAsUnwatched()" round icon-start *ngIf="isWatched">
+            <ion-icon name="eye-off"></ion-icon>
+            Mark as Unwatched
+          </button>
+          <button ion-button color="primary" (click)="markAsWatched()" round outline icon-start *ngIf="!isWatched">
+            <ion-icon name="eye"></ion-icon>
+            Mark as Watched
           </button>
         </ion-col>
       </ion-row>

@@ -23,7 +23,7 @@ export class MovieServiceProvider {
   getMoviesPhase1() {
     return new Promise(resolve => {
       this.http.get<any>(this.apiUrl+'/51602?api_key=9e493b8e1d5cda98bb97c77029b786a0&language=en-US&append_to_response=images&include_image_language=en,null')
-        .subscribe((data:any) => {
+        .subscribe(data => {
           this.data = data.items;
           resolve(this.data);
           console.log(data);

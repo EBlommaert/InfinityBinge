@@ -13,7 +13,8 @@ import { ItemDetailPage } from '../pages/item-detail/item-detail';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { MovieServiceProvider } from '../providers/movie-service/movie-service';
-
+import { WatchedProvider } from '../providers/watched/watched';
+import { IonicStorageModule } from '@ionic/storage';
 @NgModule({
   declarations: [
     MyApp,
@@ -26,7 +27,8 @@ import { MovieServiceProvider } from '../providers/movie-service/movie-service';
   imports: [
     BrowserModule,
     HttpClientModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -42,7 +44,8 @@ import { MovieServiceProvider } from '../providers/movie-service/movie-service';
     SplashScreen,
     HTTP,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    MovieServiceProvider
+    MovieServiceProvider,
+    WatchedProvider
   ]
 })
 export class AppModule {}
