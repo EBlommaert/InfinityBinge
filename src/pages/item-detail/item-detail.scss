@@ -32,9 +32,12 @@ page-item-detail {
       padding: 160px 16px 0;
      
       h1,
+      h2 {        
+        margin: 0;
+      }
+
       h2 {
         color: #fff;
-        margin: 0;
       }
     }
 
