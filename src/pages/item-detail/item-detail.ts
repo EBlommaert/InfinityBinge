@@ -25,24 +25,24 @@ export class ItemDetailPage {
   genre_ids;
   release_date;
   original_language;
+  film: any;
   isWatched = false;
 
   constructor(public navParams: NavParams, public navCtrl: NavController, public watchedProvider: WatchedProvider ) {
-    this.id = this.navParams.get('movie');
-    this.watchedProvider.isWatched(this.id).then(isWatched => {
-      this.isWatched = isWatched;
+    this.movie = this.navParams.get('movie');
+    this.watchedProvider.isWatched(this.movie.id).then(isWatch => {
+      this.isWatched = isWatch;
     })
   }
 
-  markAsWatched() {
-    this.watchedProvider.markAsWatched(this.id).then(() => {
+  markWatched() {
+    this.watchedProvider.markWatched(this.movie.id).then(() => {
       this.isWatched = true;
-      console.log();
     });
   }
  
-  markAsUnwatched() {
-    this.watchedProvider.markAsUnwatched(this.id).then(() => {
+  markUnwatched() {
+    this.watchedProvider.markUnwatched(this.movie.id).then(() => {
       this.isWatched = false;
     });
   }

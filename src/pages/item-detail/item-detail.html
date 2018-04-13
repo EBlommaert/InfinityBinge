@@ -26,17 +26,17 @@
     <ion-grid>
       <ion-row nowrap>
         <ion-col>
-          <h1>{{original_title}}</h1>         
+          <h1>{{original_title}}</h1>       
         </ion-col>
       </ion-row>      
 
       <ion-row nowrap>
         <ion-col>
-          <button ion-button color="primary" (click)="markAsUnwatched()" round icon-start *ngIf="isWatched">
+          <button ion-button color="primary" (click)="markUnwatched()" *ngIf="isWatched" round icon-start>
             <ion-icon name="eye-off"></ion-icon>
             Mark as Unwatched
           </button>
-          <button ion-button color="primary" (click)="markAsWatched()" round outline icon-start *ngIf="!isWatched">
+          <button ion-button color="primary" (click)="markWatched()" *ngIf="!isWatched" round outline icon-start>
             <ion-icon name="eye"></ion-icon>
             Mark as Watched
           </button>
