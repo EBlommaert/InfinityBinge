@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { MovieServiceProvider } from '../../providers/movie-service/movie-service';
 
-const STORAGE_KEY = 'favoriteFilms';
+const STORAGE_KEY = 'watchedMovies';
 
 @Injectable()
 export class WatchedProvider {

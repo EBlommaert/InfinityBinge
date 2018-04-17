@@ -28,7 +28,7 @@ page-item-detail {
       margin: 0 auto;
     }
 
-    ion-segment.segment-md {
+    ion-segment.hero_text {
       padding: 160px 16px 0;
      
       h1,
@@ -42,8 +42,22 @@ page-item-detail {
 
       .item {
         background: none;
-        color: #fff;
-        text-align: center;
+        color: #fff;        
+      }
+    }
+
+    ion-segment.details {
+      margin-top: 16px;
+      padding: 16px;
+
+      ion-list {
+        margin-bottom: 0;
+        
+        ion-item {
+          background: none;
+          color: #fff;
+          padding-left: 0;
+        }
       }
     }
 

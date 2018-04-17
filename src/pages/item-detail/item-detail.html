@@ -22,7 +22,7 @@
     </ion-card>
   </div>
 
-  <ion-segment text-center>
+  <ion-segment text-center class="hero_text">
     <ion-grid>
       <ion-row nowrap>
         <ion-col>
@@ -43,7 +43,16 @@
         </ion-col>
       </ion-row>
 
-      <ion-row padding>
+    </ion-grid>
+
+  </ion-segment>
+
+  <ion-segment text-left class="details">
+    <ion-grid>
+      <ion-row>
+        <h3>Details</h3>
+      </ion-row>
+      <ion-row>         
         <ion-list>
           <ion-item>
             <strong>Rating: </strong> {{vote_average}}
@@ -56,10 +65,10 @@
           </ion-item>
         </ion-list>
       </ion-row>
-
     </ion-grid>
-
+     
   </ion-segment>
+
 
   <ion-segment text-left class="description">
     <ion-grid>

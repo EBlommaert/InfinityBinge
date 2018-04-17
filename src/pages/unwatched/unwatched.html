@@ -1,11 +1,23 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Unwatched
-    </ion-title>
-  </ion-navbar>
-</ion-header>
+
+    <ion-navbar>
+  
+    </ion-navbar>
+  
+  </ion-header>
 
 <ion-content padding>
+  <ng-container *ngIf="!isWatched">
+    <ion-card *ngFor="let movie of unwatchedMoviesPhase1">
+        <img src="https://image.tmdb.org/t/p/w500{{movie.poster_path}}"/>
+      <ion-card-content>
+        <ion-card-title>
+            {{movie.original_title}}
+          </ion-card-title>
+          <p>{{ overview }}</p>
+      </ion-card-content>
+    </ion-card>
+  </ng-container>
+
 
 </ion-content>
