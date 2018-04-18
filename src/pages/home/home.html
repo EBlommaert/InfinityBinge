@@ -1,48 +1,47 @@
-<ion-content padding>
 
-  <h1>InfinityBinge Phase 1</h1>
-  <ion-slides slidesPerView="2">
-    <ion-slide *ngFor="let movie of moviesPhase1">
-      <ion-card (click)="viewItemPhase1(movie)">
-        <img src="https://image.tmdb.org/t/p/w500{{movie.poster_path}}"/>
-        <ion-card-content>
-          <ion-card-title>
-            <span>{{movie.original_title}}</span>
-            </ion-card-title>
+<!--
+  Generated template for the LandingPage page.
 
-        </ion-card-content>
-      </ion-card>
-    </ion-slide>
-    </ion-slides>
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
 
-    <h1>InfinityBinge Phase 2</h1>
-    <ion-slides slidesPerView="2">
-      <ion-slide *ngFor="let movie of moviesPhase2">
-        <ion-card (click)="viewItemPhase2(movie)">
-          <img src="https://image.tmdb.org/t/p/w500{{movie.poster_path}}"/>
-          <ion-card-content>
-            <ion-card-title>
-              <span>{{movie.original_title}}</span>
-            </ion-card-title>
-          </ion-card-content>
-        </ion-card>
+<ion-content>
+    <ion-slides pager>
+      <ion-slide style="background: #CC463A">
+        <button class="skip_button" small icon-right ion-button color="dark"(click)="startBinge()">Skip <ion-icon name="arrow-dropright"></ion-icon></button>
+        <img src="assets/imgs/headers/avengers_icon.png" />
+        <h1>Road to Infinity War</h1>
+        <p>Welcom to InfinityBinge. This app will help you get ready for the world premiere of Avengers Infinity War. How you will say?
+           By bingewatching every Marvel movie that let up to the events of Infinity war. </p>
       </ion-slide>
-      </ion-slides>
-
-      <h1>InfinityBinge Phase 3</h1>
-      <ion-slides slidesPerView="2">
-        <ion-slide *ngFor="let movie of moviesPhase3">
-          <ion-card (click)="viewItemPhase2(movie)">
-            <img src="https://image.tmdb.org/t/p/w500{{movie.poster_path}}"/>
-            <ion-card-content>
-              <ion-card-title>
-                <span>{{movie.original_title}}</span>
-              </ion-card-title>
-            </ion-card-content>
-          </ion-card>
-        </ion-slide>
-        </ion-slides>
-
-
-
-</ion-content>
+      <ion-slide style="background: #256697">
+          <button class="skip_button" small icon-right ion-button color="dark"(click)="startBinge()">Skip <ion-icon name="arrow-dropright"></ion-icon></button>
+        <img src="assets/imgs/headers/captain_america_head.svg" />
+        <h1>Phase 1</h1>
+        <p>In Phase 1 we will meet the worlds first hero that will be part of Shields Avengers Initiative. 
+          A team of superheroes must form to face the first world crisis. </p>
+      </ion-slide>
+      <ion-slide style="background: #B3B3B3">
+          <button class="skip_button" small icon-right ion-button color="dark"(click)="startBinge()">Skip <ion-icon name="arrow-dropright"></ion-icon></button>
+          <img src="assets/imgs/headers/iron_man_head.svg" />
+        <h1>Phase 2</h1>
+        <p>As we discover the background stories of our favorite heroes a new villain arises from the demons we have created.</p>
+      </ion-slide>
+      <ion-slide style="background: #F79914">
+          <button class="skip_button" small icon-right ion-button color="dark"(click)="startBinge()">Skip <ion-icon name="arrow-dropright"></ion-icon></button>
+          <img src="assets/imgs/headers/thanos_head.svg" />
+        <h1>Phase 3</h1>
+        <p>In the aftermath of phase 2 finally we will see a divided team. That needs to bring their A game to face universe most feared Thanos.</p>
+      </ion-slide>
+      <ion-slide style="background: #ef0d24">
+          
+        <ion-icon class="hero_icon" name="film"></ion-icon>
+        <h1>Start the Binge</h1>
+        <p>So what are you waiting for? Let's get you up to speed and start binging your favorite Marvel movies.</p>
+        <button color="dark" ion-button (click)="startBinge()">Start Binge</button>
+      </ion-slide>
+    </ion-slides>
+  
+  </ion-content>
+  

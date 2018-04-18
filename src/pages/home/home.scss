@@ -1,29 +1,25 @@
 page-home {
-  ion-slide.swiper-slide {
-    align-items: flex-start;
-    width: 120px !important;
-  }
+  .slides {
+    height: 100%;
 
-  ion-card.card-md {
-    background: none;
-    -webkit-box-shadow: none;
-    box-shadow: none;
-
-    img {
-      height: 159px;
+    .swiper-slide {
+      padding: 16px;
+      
+      .skip_button {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+      }
+      h1 {
+        color: color($colors, light); 
+      }
+      img,
+      .hero_icon {
+        height: 200px;  
+        color: color($colors, dark);    
+        font-size: 180px;   
+      }      
     }
-  }
-
-  ion-card-content.card-content-md {
-    padding: 2px 0;
-  }
-
-  ion-card-title.card-title-md {
-    font-size: 1.5rem;
-    text-align: left;
-    color: #fff;
-    margin: 0;
-    padding: 0;
-  }
+  } 
 
 }

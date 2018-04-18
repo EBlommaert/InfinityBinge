@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { ItemDetailPage } from '../item-detail/item-detail';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 
@@ -12,9 +13,9 @@ import { WatchedProvider } from '../../providers/watched/watched';
 })
 export class UnwatchedPage {
 
-  public unwatchedMoviesPhase1: any;
-  public unwatchedMoviesPhase2: any;
-  public unwatchedMoviesPhase3: any;  
+  public moviesPhase1: any;
+  public moviesPhase2: any;
+  public moviesPhase3: any;  
   movie: any;
   original_title;
   poster_path;
@@ -28,35 +29,26 @@ export class UnwatchedPage {
   film: any;
   isWatched = false;
 
-  constructor(public navParams: NavParams, public navCtrl: NavController, public MovieServiceProvider: MovieServiceProvider, public watchedProvider: WatchedProvider) {
-    this.movie = this.navParams.get('movie');
-    this.watchedProvider.isWatched(this.movie.id).then(isWatch => {
-      this.isWatched = isWatch;
-    })
-    this.getUnwatchedMoviesPhase1();
-    this.getUnwatchedMoviesPhase2();
-    this.getUnwatchedMoviesPhase3();
+  constructor(
+    public navParams: NavParams,
+    public navCtrl: NavController, 
+    public MovieServiceProvider: MovieServiceProvider, 
+    public watchedProvider: WatchedProvider) {  
+      
+    this.getUnwatchedMoviesPhase1();   
   }
 
-  getUnwatchedMoviesPhase1() {
+  getUnwatchedMoviesPhase1() {    
     this.MovieServiceProvider.getMoviesPhase1()
     .then(data => {
-      this.unwatchedMoviesPhase1 = data;
-    });
+      this.moviesPhase1 = data;
+    });  
   }
 
-  getUnwatchedMoviesPhase2() {
-    this.MovieServiceProvider.getMoviesPhase2()
-    .then(data => {
-      this.unwatchedMoviesPhase2 = data;
+  viewItem(movie) {
+    this.navCtrl.push(ItemDetailPage, {
+      movie:movie
     });
   }
-
-  getUnwatchedMoviesPhase3() {
-    this.MovieServiceProvider.getMoviesPhase2()
-    .then(data => {
-      this.unwatchedMoviesPhase3 = data;
-    });
-  }
-
+  
 }

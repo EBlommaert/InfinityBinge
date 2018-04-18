@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { WatchedProvider } from '../../providers/watched/watched';
+import { Badge } from '@ionic-native/badge';
 
 /**
  * Generated class for the ItemDetailPage page.
@@ -28,17 +29,36 @@ export class ItemDetailPage {
   film: any;
   isWatched = false;
 
-  constructor(public navParams: NavParams, public navCtrl: NavController, public watchedProvider: WatchedProvider ) {
+  constructor(public navParams: NavParams, public navCtrl: NavController, public watchedProvider: WatchedProvider, private badge: Badge ) {
     this.movie = this.navParams.get('movie');
     this.watchedProvider.isWatched(this.movie.id).then(isWatch => {
       this.isWatched = isWatch;
     })
   }
 
-  markWatched() {
+  requestPermission() {
+    try {
+      let hasPermission = this.badge.hasPermission();
+      console.log(hasPermission);
+      if (!hasPermission) {
+        let permission = this.badge.requestPermission();
+        console.log(permission);
+      }
+    } catch (e) {
+      console.error(e);
+    }
+  }
+
+  markWatched(badgeNumber: number) {
     this.watchedProvider.markWatched(this.movie.id).then(() => {
       this.isWatched = true;
     });
+    try {
+      let badges = this.badge.set(badgeNumber);
+      console.log(badges);
+    } catch (e) {
+      console.error(e);
+    }
   }
  
   markUnwatched() {
@@ -60,5 +80,6 @@ export class ItemDetailPage {
     this.overview = this.navParams.get('movie').overview;
   }
 
+ 
 
 }

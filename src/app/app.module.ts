@@ -9,12 +9,14 @@ import { AchievementsPage } from '../pages/achievements/achievements';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { ItemDetailPage } from '../pages/item-detail/item-detail';
+import { PhasesPage } from '../pages/phases/phases';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { MovieServiceProvider } from '../providers/movie-service/movie-service';
 import { WatchedProvider } from '../providers/watched/watched';
 import { IonicStorageModule } from '@ionic/storage';
+import { Badge } from '@ionic-native/badge';
 @NgModule({
   declarations: [
     MyApp,
@@ -23,6 +25,7 @@ import { IonicStorageModule } from '@ionic/storage';
     HomePage,
     TabsPage,
     ItemDetailPage,
+    PhasesPage
   ],
   imports: [
     BrowserModule,
@@ -37,11 +40,13 @@ import { IonicStorageModule } from '@ionic/storage';
     AchievementsPage,
     HomePage,
     TabsPage,
-    ItemDetailPage
+    ItemDetailPage,
+    PhasesPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    Badge,
     HTTP,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     MovieServiceProvider,

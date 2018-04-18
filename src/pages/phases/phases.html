@@ -1,0 +1,48 @@
+<ion-content padding>
+
+    <h1>InfinityBinge Phase 1</h1>
+    <ion-slides slidesPerView="2">
+      <ion-slide *ngFor="let movie of moviesPhase1">
+        <ion-card (click)="viewItemPhase1(movie)">
+          <img src="https://image.tmdb.org/t/p/w500{{movie.poster_path}}"/>
+          <ion-card-content>
+            <ion-card-title>
+              <span>{{movie.original_title}}</span>
+              </ion-card-title>
+  
+          </ion-card-content>
+        </ion-card>
+      </ion-slide>
+      </ion-slides>
+  
+      <h1>InfinityBinge Phase 2</h1>
+      <ion-slides slidesPerView="2">
+        <ion-slide *ngFor="let movie of moviesPhase2">
+          <ion-card (click)="viewItemPhase2(movie)">
+            <img src="https://image.tmdb.org/t/p/w500{{movie.poster_path}}"/>
+            <ion-card-content>
+              <ion-card-title>
+                <span>{{movie.original_title}}</span>
+              </ion-card-title>
+            </ion-card-content>
+          </ion-card>
+        </ion-slide>
+        </ion-slides>
+  
+        <h1>InfinityBinge Phase 3</h1>
+        <ion-slides slidesPerView="2">
+          <ion-slide *ngFor="let movie of moviesPhase3">
+            <ion-card (click)="viewItemPhase2(movie)">
+              <img src="https://image.tmdb.org/t/p/w500{{movie.poster_path}}"/>
+              <ion-card-content>
+                <ion-card-title>
+                  <span>{{movie.original_title}}</span>
+                </ion-card-title>
+              </ion-card-content>
+            </ion-card>
+          </ion-slide>
+          </ion-slides>
+  
+  
+  
+  </ion-content>

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { ViewChild } from '@angular/core';
 import { Slides } from 'ionic-angular';
-import { ItemDetailPage } from '../item-detail/item-detail';
+import { PhasesPage } from '../phases/phases';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 
@@ -15,56 +15,37 @@ import { MovieServiceProvider } from '../../providers/movie-service/movie-servic
 })
 
 export class HomePage {
-  @ViewChild(Slides) slides: Slides;
-
-  public moviesPhase1: any;
-  public moviesPhase2: any;
-  public moviesPhase3: any;  
+  @ViewChild(Slides) slides: Slides; 
+  
  
   constructor(public navCtrl: NavController, public MovieServiceProvider: MovieServiceProvider) {
-    this.getMoviesPhase1();
-    this.getMoviesPhase2();
-    this.getMoviesPhase3();
+    
+  }
+  
+  startBinge(){
+    this.navCtrl.push(PhasesPage);
   }
 
-
-  getMoviesPhase1() {
-    this.MovieServiceProvider.getMoviesPhase1()
-    .then(data => {
-      this.moviesPhase1 = data;
-    });
+  skipToBinge(){
+    this.navCtrl.push(PhasesPage);
   }
 
-  getMoviesPhase2() {
-    this.MovieServiceProvider.getMoviesPhase2()
-    .then(data => {
-      this.moviesPhase2 = data;
-    });
+  ionViewWillEnter() {
+    let tabs = document.querySelectorAll('.tabbar');
+    if ( tabs !== null ) {
+      Object.keys(tabs).map((key) => {
+        tabs[ key ].style.transform = 'translateY(56px)';
+      });
+    } // end if
   }
 
-  getMoviesPhase3() {
-    this.MovieServiceProvider.getMoviesPhase3()
-    .then(data => {
-      this.moviesPhase3 = data;
-    });
-  }
-
-  viewItemPhase1(movie){
-    this.navCtrl.push(ItemDetailPage, {
-      movie:movie
-    });
-  }
-
-  viewItemPhase2(movie){
-    this.navCtrl.push(ItemDetailPage, {
-      movie:movie
-    });
-  }
-
-  viewItemPhase3(movie){
-    this.navCtrl.push(ItemDetailPage, {
-      movie:movie
-    });
+  ionViewDidLeave() {
+    let tabs = document.querySelectorAll('.tabbar');
+    if ( tabs !== null ) {
+      Object.keys(tabs).map((key) => {
+        tabs[ key ].style.transform = 'translateY(0)';
+      });
+    } // end if
   }
 
   ionViewDidLoad() {
