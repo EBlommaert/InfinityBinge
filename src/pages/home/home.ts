@@ -6,6 +6,7 @@ import { PhasesPage } from '../phases/phases';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 
+import { UnwatchedProvider } from '../../providers/unwatched/unwatched';
 import { MovieServiceProvider } from '../../providers/movie-service/movie-service';
 
 @Component({
@@ -18,7 +19,7 @@ export class HomePage {
   @ViewChild(Slides) slides: Slides; 
   
  
-  constructor(public navCtrl: NavController, public MovieServiceProvider: MovieServiceProvider) {
+  constructor(public unwatchedprovider: UnwatchedProvider, public navCtrl: NavController, public MovieServiceProvider: MovieServiceProvider) {
     
   }
   
@@ -48,7 +49,8 @@ export class HomePage {
     } // end if
   }
 
-  ionViewDidLoad() {
+  ionViewDidLoad(filmId) {
+    return this.unwatchedprovider.setAllUnwatchedMovies(filmId)
 
   }
 

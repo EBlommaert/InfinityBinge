@@ -1,7 +1,7 @@
 
 <ion-content padding>
-  <ng-container *ngIf="!isWatched">
-    <ion-card *ngFor="let movie of moviesPhase1" (click)="viewItem(movie)">
+  <ng-container *ngIf="!isUnwatched">
+    <ion-card *ngFor="let movie of movies" (click)="viewItem(movie)">
         <img src="https://image.tmdb.org/t/p/w500{{movie.backdrop_path}}"/>
       
       <div class="card-title"><h2>{{movie.original_title}}</h2></div>

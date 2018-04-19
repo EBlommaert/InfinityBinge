@@ -6,7 +6,7 @@ const STORAGE_KEY = 'watchedMovies';
 
 @Injectable()
 export class WatchedProvider {
-
+  
   constructor(public storage: Storage, public MovieServiceProvider: MovieServiceProvider) {
     console.log('Hello WatchedProvider Provider');
   }

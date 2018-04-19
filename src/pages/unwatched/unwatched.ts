@@ -5,7 +5,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 
 import { MovieServiceProvider } from '../../providers/movie-service/movie-service';
-import { WatchedProvider } from '../../providers/watched/watched';
+import { UnwatchedProvider } from '../../providers/unwatched/unwatched';
 @Component({
   selector: 'page-unwatched',
   templateUrl: 'unwatched.html',
@@ -13,7 +13,7 @@ import { WatchedProvider } from '../../providers/watched/watched';
 })
 export class UnwatchedPage {
 
-  public moviesPhase1: any;
+  public movies: any;
   public moviesPhase2: any;
   public moviesPhase3: any;  
   movie: any;
@@ -27,21 +27,21 @@ export class UnwatchedPage {
   release_date;
   original_language;
   film: any;
-  isWatched = false;
+  isUnwatched = false;
 
   constructor(
     public navParams: NavParams,
     public navCtrl: NavController, 
     public MovieServiceProvider: MovieServiceProvider, 
-    public watchedProvider: WatchedProvider) {  
+    public unwatchedProvider: UnwatchedProvider) {  
       
-    this.getUnwatchedMoviesPhase1();   
+    this.getUnwatchedMovies();   
   }
 
-  getUnwatchedMoviesPhase1() {    
-    this.MovieServiceProvider.getMoviesPhase1()
+  getUnwatchedMovies() {    
+    this.unwatchedProvider.getAllUnWatchedMoviesIds()
     .then(data => {
-      this.moviesPhase1 = data;
+      this.movies = data;
     });  
   }
 

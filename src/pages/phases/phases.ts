@@ -6,6 +6,7 @@ import { ItemDetailPage } from '../item-detail/item-detail';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 
+import { UnwatchedProvider } from '../../providers/unwatched/unwatched';
 import { MovieServiceProvider } from '../../providers/movie-service/movie-service';
 
 
@@ -22,7 +23,7 @@ export class PhasesPage {
   public moviesPhase2: any;
   public moviesPhase3: any;    
 
-  constructor(public navCtrl: NavController, public MovieServiceProvider: MovieServiceProvider) {
+  constructor(public unwatchedprovider: UnwatchedProvider, public navCtrl: NavController, public MovieServiceProvider: MovieServiceProvider) {
     this.getMoviesPhase1();
     this.getMoviesPhase2();
     this.getMoviesPhase3();    
@@ -69,7 +70,7 @@ export class PhasesPage {
   }
 
   ionViewDidLoad() {
-
+        
   }
 
 }
