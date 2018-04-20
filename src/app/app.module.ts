@@ -18,6 +18,7 @@ import { WatchedProvider } from '../providers/watched/watched';
 import { IonicStorageModule } from '@ionic/storage';
 import { Badge } from '@ionic-native/badge';
 import { UnwatchedProvider } from '../providers/unwatched/unwatched';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
 @NgModule({
   declarations: [
     MyApp,
@@ -52,7 +53,8 @@ import { UnwatchedProvider } from '../providers/unwatched/unwatched';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     MovieServiceProvider,
     WatchedProvider,
-    UnwatchedProvider
+    UnwatchedProvider,
+    InAppBrowser
   ]
 })
 export class AppModule {}

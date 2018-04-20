@@ -13,7 +13,7 @@ import { UnwatchedProvider } from '../../providers/unwatched/unwatched';
 })
 export class UnwatchedPage {
 
-  public movies: any;
+  public allUnwatchedMovies: any;
   public moviesPhase2: any;
   public moviesPhase3: any;  
   movie: any;
@@ -35,19 +35,19 @@ export class UnwatchedPage {
     public MovieServiceProvider: MovieServiceProvider, 
     public unwatchedProvider: UnwatchedProvider) {  
       
-    this.getUnwatchedMovies();   
+    this.getUnwatchedList();   
   }
-
-  getUnwatchedMovies() {    
-    this.unwatchedProvider.getAllUnWatchedMoviesIds()
-    .then(data => {
-      this.movies = data;
-    });  
-  }
-
+  
   viewItem(movie) {
     this.navCtrl.push(ItemDetailPage, {
       movie:movie
+    });
+  }
+
+  getUnwatchedList() {
+    this.MovieServiceProvider.getAllUnwatchedMovies()
+    .then(data => {
+      this.allUnwatchedMovies = data;
     });
   }
   

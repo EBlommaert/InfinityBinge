@@ -5,6 +5,7 @@ import { Slides } from 'ionic-angular';
 import { PhasesPage } from '../phases/phases';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 import { UnwatchedProvider } from '../../providers/unwatched/unwatched';
 import { MovieServiceProvider } from '../../providers/movie-service/movie-service';
@@ -15,12 +16,17 @@ import { MovieServiceProvider } from '../../providers/movie-service/movie-servic
   providers: [MovieServiceProvider]
 })
 
+
+
 export class HomePage {
   @ViewChild(Slides) slides: Slides; 
   
- 
-  constructor(public unwatchedprovider: UnwatchedProvider, public navCtrl: NavController, public MovieServiceProvider: MovieServiceProvider) {
-    
+  public sessionId: any;
+  request_token: string;
+  public sessionToken: any;
+
+  constructor(private iab: InAppBrowser, public unwatchedprovider: UnwatchedProvider, public navCtrl: NavController, public MovieServiceProvider: MovieServiceProvider) {
+   
   }
   
   startBinge(){
@@ -47,11 +53,19 @@ export class HomePage {
         tabs[ key ].style.transform = 'translateY(0)';
       });
     } // end if
+    const browser = this.iab.create('https://www.themoviedb.org/authenticate/'+ this.request_token);
   }
 
-  ionViewDidLoad(filmId) {
-    return this.unwatchedprovider.setAllUnwatchedMovies(filmId)
-
+  ionViewDidLoad() {  
+    this.MovieServiceProvider.requestToken()
+    .then(data => {
+      this.sessionToken = data;
+    });
+   
+    this.MovieServiceProvider.getSessionId()
+    .then(data => {
+      this.sessionId = data;
+    });
   }
 
 }
